@@ -1,0 +1,129 @@
+/*
+ * CHANGELOG.txt 
+ *
+ * Author: John Manalac
+ * Revision Date: May 22, 2023
+ *
+ *      - Router implementation now only has one ARP cache for all of the interfaces. 
+ *        The ARP lookup function is correspondingly changed. 
+ *
+ *
+ * Author: John Manalac
+ * Revision Date: May 22, 2023
+ *
+ *      - Router implementation now only has one ARP cache for all of the interfaces. 
+ *        The ARP lookup function is correspondingly changed. 
+ *
+ *      - Implemented the  /CONNECT command will allow you to send a TCP SYN packet to an IP and port. 
+ *        It also creates a connection and sets it to TCP_SYN_SENT after sending. There are simple error 
+ *        checks for the user's IP and port numbers, but it does not work for IPs without corresponding ARPs. 
+ *
+ *      - Implemented /ACTIVEPORT, which shows the source port (on tap0) you are using to create active connections, 
+ *        and this source port be changed by simply calling /ACTIVEPORT 0 (replacing 0). 
+ *
+ *      - All commands have been changed to only work for upper-case (ex /HELP) and
+ *
+ *      - Now prints a short little message when the stack program starts. 
+ *
+ * Author: John Manalac
+ * Revision Date: May 21, 2023
+ *
+ * Main Changes: 
+ *
+ *      - Bug fixes for commands. 
+ *
+ *      - /close is now fully implemeneted.
+ *
+ *      - Diagnostics improved when establishing and closing connections. 
+ *
+ * Author: John Manalac
+ * Revision Date: May 21, 2023
+ *
+ * Main Changes: 
+ *
+ * TCP: 
+ *      - Implemention now permits and works with multiple, simultaneous TCP connections. 
+ *
+ *      - Data received that is printed to stdout is prefixed with text identifying which connection it arrived on.
+ *
+ *      - implemented a /help function to guide the user and show other commands/functions. 
+ *
+ *      - implemented a /showall function to show all established connections and curr connection to send data to. 
+ *
+ *      - implemented a /switchto conn_num function to switch which active connection to send data to. 
+ *
+ *      - implemented a /close conn_num function that allows us to close a specific connection from our side. 
+ *
+ *
+ * Author: John Manalac
+ * Revision Date: May 21, 2023
+ *
+ * Main Changes:
+ *
+ * TCP (NEW):
+ *
+ *      - Added the TCP functionality for connecting using netcat.
+ *      - Corresponding TCP files are tcp.h, tcp_functions.h, and tcp_functions.c. 
+ *      - Added new setup_tap_ip.sh for the tap0 device to send packets from using netcat. 
+ *
+ * General: 
+ *      - As a result of extra padding to TCP packets, ethernet_functions.c and ip_functions.C
+ *        have been changed to accurately handle the packets as expected on wireshark.  
+ *
+ * Version: 0.2
+ *
+ * Author: John Manalac
+ * Revision Date: May 1, 2023
+ *
+ * Main Changes:
+ *
+ * General:
+ *
+ *      - Changed find_arp_mac_address to not take in a pointer to an int, as 
+ *        it is no longer necessary with the codebase change for routing. 
+ *      - Changed appropriate calls to the function in ip_functions.c and icmp_functions.c
+ *      - Replaced various constants with hardcoded definitions in header files. 
+ *
+ * ICMP: 
+ *
+ *      - Changed payload to include IHL and first 64 BITS of 
+ *        the original IP packet, NOT BYTES!  
+ *      - Added a ICMP_MAX_BYTES_PAYLOAD set to 8 (representing bytes)
+ *        for calculations. 
+ * 
+ *
+ * Version: 0.1 
+ *
+ * Author: John Manalac
+ * Revision Date: April 30, 2023
+ * 
+ * Main Changes: 
+ *
+ *   General: 
+ *
+ *      - Completely refactored code into separate files. Please check README for more info. 
+ *      - Routers in the README now begin at Router 0.
+ *      - Networks in the README now begin at Network 0, and end at Network 5. 
+ *      - Correspondingly, vde net files begin at 0, and appropriate changes 
+ *        to the setup_vde_switches script have been made.
+ *
+ *  Routing: 
+ *
+ *      - Routing has been changed to work appropriately with networks and not device interfaces. 
+ *      - The route struct has been changed such that the last field no longer corresponds to the 
+ *        device interface name but rather the router interface to send a packet through to arrive 
+ *        at the corresponding network. 
+ *      - The routing table has been modified accordingly and now only has routes to NETWORKS 
+ *        connected directly to the router interfaces. 
+ *
+ *  IP: 
+ *
+ *      - When handling IP packets, valid_ip_packet() checks immediately if TTL = 0.
+ *      - When an IP packet is destined for any interface on the router, does not attempt 
+ *        to find a route and instead "delivers locally" before searching for a route.  
+ *      - Created constant DEFAULT_TTL in ip.h, which is set to 64. 
+ *
+ *  ICMP:
+ *
+ *      - When sending back ICMP packets, the ID is set to the old IP packet's ID. 
+ */
