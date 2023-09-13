@@ -6,6 +6,8 @@
  *
  * Router Implementation with FreeBSD and Wireshark
  *
+ * Please view the topology with indent mode Tabs, size 4, no wrap. 
+ * 
  * Please check CHANGELOG.txt for changes to implementation. 
  *
  * Credit to Peter C. Johnson for related cs431vde sections. 
@@ -13,7 +15,7 @@
 
 This is a simulation of a router connected to multiple networks. 
 
-NETWORK TOPOLOGY: 
+NETWORK TOPOLOGY:
 
                                                                               ┌──────────────────────────────┐
                                                                               │                              │
