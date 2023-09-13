@@ -1,5 +1,4 @@
-/* 
-
+#------------------#
 README
 
 Router Implementation with FreeBSD and Wireshark
@@ -7,17 +6,17 @@ Router Implementation with FreeBSD and Wireshark
 Author: John Manalac
 Date: May 22, 2023
 
+This is a simulation of a router connected to multiple networks. 
+
 Check CHANGELOG.txt for changes to implementation. 
 
 NOTES: 
 
-PLEASE view the topology with indent mode Tabs, size 4, no wrap. 
+PLEASE view the topology with indent size 4, no wrap. 
 
 Credit to Peter C. Johnson for related cs431vde sections. 
 
-*/
-
-This is a simulation of a router connected to multiple networks. 
+#------------------#
 
 NETWORK TOPOLOGY:
 
