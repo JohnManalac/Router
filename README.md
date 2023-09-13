@@ -1,17 +1,21 @@
-/*
- * README 
- *
- * Author: John Manalac
- * Date: May 22, 2023
- *
- * Router Implementation with FreeBSD and Wireshark
- *
- * Please view the topology with indent mode Tabs, size 4, no wrap. 
- * 
- * Please check CHANGELOG.txt for changes to implementation. 
- *
- * Credit to Peter C. Johnson for related cs431vde sections. 
- */
+/* 
+
+README
+
+Router Implementation with FreeBSD and Wireshark
+
+Author: John Manalac
+Date: May 22, 2023
+
+Check CHANGELOG.txt for changes to implementation. 
+
+NOTES: 
+
+PLEASE view the topology with indent mode Tabs, size 4, no wrap. 
+
+Credit to Peter C. Johnson for related cs431vde sections. 
+
+*/
 
 This is a simulation of a router connected to multiple networks. 
 
