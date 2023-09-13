@@ -8,6 +8,7 @@
  *
  * Please check CHANGELOG.txt for changes to implementation. 
  *
+ * Credit to Peter C. Johnson for related cs431vde sections. 
  */
 
 This is a simulation of a router connected to multiple networks. 
